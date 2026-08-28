@@ -58,7 +58,7 @@ export function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Button asChild variant="outline" size="sm" className="border-primary/30 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground">
+            <Button asChild variant="outline" size="sm" className="border-primary/40 bg-background/70 text-primary shadow-sm shadow-primary/10 backdrop-blur hover:border-primary hover:bg-primary/20 hover:text-white hover:shadow-primary/25">
               <a href="/admin">
                 Panel administrador
               </a>
@@ -111,7 +111,7 @@ export function Navigation() {
               </a>
             ))}
             <div className="flex flex-col gap-2 pt-4 mt-2 border-t border-border/50">
-              <Button asChild variant="outline" className="justify-start border-primary/30 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground">
+              <Button asChild variant="outline" className="justify-start border-primary/40 bg-background/70 text-primary shadow-sm shadow-primary/10 backdrop-blur hover:border-primary hover:bg-primary/20 hover:text-white hover:shadow-primary/25">
                 <a href="/admin" onClick={() => setIsMobileMenuOpen(false)}>
                   Panel administrador
                 </a>

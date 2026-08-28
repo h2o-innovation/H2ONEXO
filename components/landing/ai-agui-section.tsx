@@ -20,7 +20,7 @@ const capabilities = [
 
 export function AiAguiSection() {
   return (
-    <section className="relative overflow-hidden border-y border-border/60 bg-muted/20 py-32">
+    <section id="ai-agui" className="relative overflow-hidden border-y border-border/60 bg-muted/20 py-32">
       <div className="absolute inset-0 grid-pattern opacity-25" />
       <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl" />
 

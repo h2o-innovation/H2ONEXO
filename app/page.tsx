@@ -12,12 +12,14 @@ import { DevelopersSection } from "@/components/landing/developers-section";
 import { WebApplicationSection } from "@/components/landing/web-application-section";
 import { FooterSection } from "@/components/landing/footer-section";
 import { SectionReveal } from "@/components/landing/section-reveal";
+import { SectionDotsNav } from "@/components/landing/section-dots-nav";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <IntroSlide />
       <Navigation />
+      <SectionDotsNav />
       <SectionReveal>
         <HeroSection />
       </SectionReveal>

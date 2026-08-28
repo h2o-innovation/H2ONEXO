@@ -73,10 +73,10 @@ export function IntegrationsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 overflow-hidden">
+    <section id="integrations" ref={sectionRef} className="relative py-32 overflow-hidden">
       {/* ASCII Cube Background */}
       <div className="absolute left-10 top-1/3 opacity-5 pointer-events-none hidden xl:block">
-        <AsciiCube className="w-[400px] h-[350px]" />
+        <AsciiCube className="w-100 h-87.5" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
@@ -125,7 +125,7 @@ export function IntegrationsSection() {
 
         {/* CTA Card */}
         <div
-          className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-card to-muted/50 border border-border card-shadow transition-all duration-700 delay-300 ${
+          className={`relative overflow-hidden rounded-2xl bg-linear-to-br from-card to-muted/50 border border-border card-shadow transition-all duration-700 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >

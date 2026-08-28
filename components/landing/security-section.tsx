@@ -69,7 +69,7 @@ export function SecuritySection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 bg-muted/30 overflow-hidden">
+    <section id="security" ref={sectionRef} className="relative py-32 bg-muted/30 overflow-hidden">
       {/* ASCII Torus Background */}
       <div className="absolute right-0 bottom-0 opacity-5 pointer-events-none">
         <AsciiTorus className="w-125 h-112.5" />
