@@ -6,6 +6,7 @@ import { HowItWorksSection } from "@/components/landing/how-it-works-section";
 import { InfrastructureSection } from "@/components/landing/infrastructure-section";
 import { MetricsSection } from "@/components/landing/metrics-section";
 import { IntegrationsSection } from "@/components/landing/integrations-section";
+import { AiAguiSection } from "@/components/landing/ai-agui-section";
 import { SecuritySection } from "@/components/landing/security-section";
 import { DevelopersSection } from "@/components/landing/developers-section";
 import { WebApplicationSection } from "@/components/landing/web-application-section";
@@ -19,6 +20,9 @@ export default function Home() {
       <Navigation />
       <SectionReveal>
         <HeroSection />
+      </SectionReveal>
+      <SectionReveal>
+        <AiAguiSection />
       </SectionReveal>
       <SectionReveal>
         <FeaturesSection />
