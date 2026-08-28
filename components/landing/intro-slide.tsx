@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -26,9 +26,10 @@ const teamMembers = [
 ];
 
 export function IntroSlide() {
-  const [isVisible, setIsVisible] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isLeaving, setIsLeaving] = useState(false);
-  const [activeSlide, setActiveSlide] = useState<"intro" | "team">("intro");
+  const [activeSlide, setActiveSlide] = useState<"video" | "intro" | "team">("video");
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [showPresenter, setShowPresenter] = useState(false);
   const [showBrand, setShowBrand] = useState(false);
@@ -60,11 +61,33 @@ export function IntroSlide() {
     setActiveSlide("team");
   };
 
+  const startVideo = () => {
+    setIsVideoPlaying(true);
+    setIsMusicEnabled(true);
+
+    const video = videoRef.current;
+    if (video) {
+      video.currentTime = 0;
+      video.muted = false;
+      video.volume = 1;
+      void video.play();
+    }
+  };
+
+  const continueToIntro = () => {
+    videoRef.current?.pause();
+    setActiveSlide("intro");
+    setHasStarted(true);
+    setIsMusicEnabled(true);
+  };
+
   const returnToIntro = () => {
     setActiveSlide("intro");
   };
 
   const resetIntro = () => {
+    setActiveSlide("video");
+    setIsVideoPlaying(false);
     setHasStarted(false);
     setShowPresenter(false);
     setShowBrand(false);
@@ -74,20 +97,17 @@ export function IntroSlide() {
   const finishPresentation = () => {
     setIsMusicEnabled(true);
     setIsLeaving(true);
-    window.setTimeout(() => setIsVisible(false), 700);
   };
 
   const markPhotoMissing = (photo: string) => {
     setMissingPhotos((current) => current.includes(photo) ? current : [...current, photo]);
   };
 
-  if (!isVisible) return null;
-
   return (
     <section
       className={`fixed inset-0 z-100 flex min-h-screen items-center justify-center overflow-hidden bg-background transition-all duration-700 ease-in-out ${
         isLeaving ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
-      }`}
+      } ${isLeaving ? "pointer-events-none" : ""}`}
     >
       <div className="absolute inset-0 grid-pattern opacity-40" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.22),transparent_42%)]" />
@@ -111,7 +131,7 @@ export function IntroSlide() {
         />
       )}
 
-      {hasStarted && (
+      {activeSlide !== "video" && hasStarted && (
         <button
           type="button"
           onClick={activeSlide === "team" ? returnToIntro : resetIntro}
@@ -122,7 +142,41 @@ export function IntroSlide() {
         </button>
       )}
 
-      {activeSlide === "intro" ? (
+      {activeSlide === "video" ? (
+        <div className="group/video-intro absolute inset-0 z-10 flex items-center justify-center overflow-hidden bg-black">
+          <video
+            ref={videoRef}
+            src="/proteus.mp4"
+            playsInline
+            preload="auto"
+            onEnded={continueToIntro}
+            className="absolute inset-0 h-full w-full object-contain opacity-90"
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_34%,rgba(0,0,0,.36)_82%)]" />
+          <div className="absolute inset-0 grid-pattern opacity-10" />
+
+          <div
+            className={`relative z-10 flex flex-col items-center px-6 text-center transition-all duration-500 ${
+              isVideoPlaying
+                ? "opacity-0 translate-y-4 group-hover/video-intro:translate-y-0 group-hover/video-intro:opacity-100 group-focus-within/video-intro:translate-y-0 group-focus-within/video-intro:opacity-100"
+                : "opacity-100 translate-y-0"
+            }`}
+          >
+            <div className="mb-8 h-px w-40 bg-primary/70 shadow-[0_0_24px_rgba(59,130,246,0.7)] animate-pulse" />
+            <p className="mb-10 font-mono text-sm uppercase tracking-[0.35em] text-primary/70">
+              {isVideoPlaying ? "Proteus iniciando" : "Presiona para iniciar"}
+            </p>
+            <button
+              type="button"
+              onClick={isVideoPlaying ? continueToIntro : startVideo}
+              className="group grid h-14 w-14 place-items-center rounded-full border border-primary/40 bg-primary/10 text-primary shadow-[0_0_32px_rgba(59,130,246,0.25)] transition-all duration-300 hover:scale-105 hover:bg-primary hover:text-primary-foreground"
+              aria-label={isVideoPlaying ? "Continuar intro" : "Iniciar video"}
+            >
+              <ArrowRight className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+          </div>
+        </div>
+      ) : activeSlide === "intro" ? (
         <div className="relative z-10 flex flex-col items-center px-6 text-center">
           <div className="mb-8 h-px w-40 bg-primary/70 shadow-[0_0_24px_rgba(59,130,246,0.7)] animate-pulse" />
           {showPresenter ? (

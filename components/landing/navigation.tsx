@@ -58,6 +58,11 @@ export function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
+            <Button asChild variant="outline" size="sm" className="border-primary/30 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground">
+              <a href="/admin">
+                Panel administrador
+              </a>
+            </Button>
             <Button asChild variant="ghost" size="sm" className="text-muted-foreground">
               <a href="https://proteus-h2o.onrender.com" target="_blank" rel="noreferrer">
                 Ingresar
@@ -106,6 +111,11 @@ export function Navigation() {
               </a>
             ))}
             <div className="flex flex-col gap-2 pt-4 mt-2 border-t border-border/50">
+              <Button asChild variant="outline" className="justify-start border-primary/30 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground">
+                <a href="/admin" onClick={() => setIsMobileMenuOpen(false)}>
+                  Panel administrador
+                </a>
+              </Button>
               <Button asChild variant="ghost" className="justify-start text-muted-foreground">
                 <a href="https://proteus-h2o.onrender.com" target="_blank" rel="noreferrer">
                   Ingresar
