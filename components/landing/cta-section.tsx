@@ -36,7 +36,7 @@ export function CtaSection() {
           
           {/* Cube animation as full background */}
           <div className="absolute right-0 top-1/2 -translate-y-1/2 overflow-hidden opacity-25">
-            <AsciiCube className="w-[600px] h-[500px]" />
+            <AsciiCube className="w-150 h-125" />
           </div>
 
           <div className="relative z-10 px-8 lg:px-16 py-16 bg-transparent lg:py-0.5">
@@ -52,11 +52,14 @@ export function CtaSection() {
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <Button
+                    asChild
                     size="lg"
                     className="bg-background hover:bg-background/90 text-foreground px-6 h-12 text-sm font-medium group"
                   >
-                    Crear mi formulario
-                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5" />
+                    <a href="https://proteus-h2o.onrender.com" target="_blank" rel="noreferrer">
+                      Crear mi formulario
+                      <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5" />
+                    </a>
                   </Button>
                   <Button
                     size="lg"
@@ -74,7 +77,7 @@ export function CtaSection() {
               
               {/* Animated ASCII Sphere */}
               <div className="hidden lg:block opacity-40">
-                <AsciiSphere className="w-[600px] h-[560px]" />
+                <AsciiSphere className="w-150 h-140" />
               </div>
             </div>
           </div>

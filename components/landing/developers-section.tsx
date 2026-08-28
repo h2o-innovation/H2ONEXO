@@ -8,15 +8,15 @@ import { Copy, Check } from "lucide-react";
 const codeExamples = [
   {
     label: "Crear formulario",
-    code: `import { H2ONexo } from '@h2o/nexo'
+    code: `import { Proteus } from '@proteus/sdk'
 
-const nexo = new H2ONexo({
+const proteus = new Proteus({
   workspace: 'acme'
 })`,
   },
   {
     label: "Publicar",
-  code: `const respuesta = await nexo.respuestas.listar({
+  code: `const respuesta = await proteus.respuestas.listar({
   formulario: 'registro-clientes',
   status: 'Recibido'
 })
@@ -25,7 +25,7 @@ console.log(respuesta)`,
   },
   {
     label: "Seguimiento",
-  code: `const formulario = await nexo.formularios.publicar({
+  code: `const formulario = await proteus.formularios.publicar({
   slug: 'pedido-de-venta',
   compartir: true
 })
@@ -74,7 +74,7 @@ export function DevelopersSection() {
               Mucho más que un formulario.
             </h2>
             <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-              Las herramientas comunes recopilan respuestas. H2O Nexo transforma respuestas en acciones.
+              Las herramientas comunes recopilan respuestas. Proteus transforma respuestas en acciones.
             </p>
             
             {/* Features list */}
@@ -146,7 +146,7 @@ export function DevelopersSection() {
               <div className="border-t border-border p-4 bg-secondary/20">
                 <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground mb-2">
                   <span className="text-blue-400">$</span>
-                  <span>npm install @h2o/nexo</span>
+                  <span>npm install @proteus/sdk</span>
                 </div>
                 <div className="text-xs font-mono text-muted-foreground/60">
                   capa de servicio lista para una integración futura

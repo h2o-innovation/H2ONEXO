@@ -48,7 +48,7 @@ export function InfrastructureSection() {
               Para empresas que necesitan recopilar información y actuar sobre ella.
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              H2O Nexo permite configurar la recopilación de datos según cada necesidad, sin crear una nueva aplicación para cada proceso.
+              Proteus permite configurar la recopilación de datos según cada necesidad, sin crear una nueva aplicación para cada proceso.
             </p>
 
             <div className="space-y-6">

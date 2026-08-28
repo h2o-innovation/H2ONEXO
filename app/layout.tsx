@@ -16,9 +16,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'H2O Nexo — Formularios que se convierten en procesos',
-  description: 'Crea formularios personalizados, comparte respuestas y transforma datos en acciones con H2O Nexo.',
-  generator: 'H2O Nexo',
+  title: 'Proteus — Formularios que se convierten en procesos',
+  description: 'Crea formularios personalizados, comparte respuestas y transforma datos en acciones con Proteus.',
+  generator: 'Proteus',
   icons: {
     icon: [
       {

@@ -87,7 +87,7 @@ export function SecuritySection() {
             Uma plataforma preparada para crescer.
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            El núcleo configurable de H2O Nexo puede evolucionar con nuevas capas según lo requiera cada proceso.
+            El núcleo configurable de Proteus puede evolucionar con nuevas capas según lo requiera cada proceso.
           </p>
         </div>
 

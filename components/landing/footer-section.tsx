@@ -43,11 +43,11 @@ export function FooterSection() {
                 <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
                   <Terminal className="w-4 h-4 text-primary" />
                 </div>
-                <span className="font-semibold text-lg tracking-tight">H₂O Nexo</span>
+                <span className="font-semibold text-lg tracking-tight">Proteus</span>
               </a>
 
               <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                H2O Nexo — Crea, comparte y transforma respuestas en acciones.
+                Proteus — Crea, comparte y transforma respuestas en acciones.
               </p>
 
               {/* Social Links */}
@@ -93,7 +93,7 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            2026 H2O Nexo. Todos los derechos reservados.
+            2026 Proteus. Todos los derechos reservados.
           </p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">

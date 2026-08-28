@@ -1,10 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { IntegrationMenu } from "./integration-menu";
 
 const navLinks = [
   { name: "Problema", href: "#features" },
@@ -36,19 +34,13 @@ export function Navigation() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20" />
-              <Image
-                src="/h2o-nexo-logo.png"
-                alt="H2O Nexo"
-                fill
-                sizes="40px"
-                className="object-cover relative z-10"
-              />
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/10" />
-            </div>
-            <span className="text-xl font-bold tracking-tight">H₂O Nexo</span>
+          <a href="#" className="group flex items-center">
+            <span
+              className="text-2xl font-semibold tracking-tight text-white transition-opacity duration-300 group-hover:opacity-90"
+              style={{ fontFamily: "var(--font-geist-pixel-line), monospace" }}
+            >
+              Proteus
+            </span>
           </a>
 
           {/* Desktop Navigation */}
@@ -62,19 +54,23 @@ export function Navigation() {
                 {link.name}
               </a>
             ))}
-            <IntegrationMenu />
           </div>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" size="sm" className="text-muted-foreground pointer-events-none">
-              Ingresar
+            <Button asChild variant="ghost" size="sm" className="text-muted-foreground">
+              <a href="https://proteus-h2o.onrender.com" target="_blank" rel="noreferrer">
+                Ingresar
+              </a>
             </Button>
             <Button
+              asChild
               size="sm"
               className="bg-foreground hover:bg-foreground/90 text-background"
             >
-              Experimentar ahora
+              <a href="https://proteus-h2o.onrender.com" target="_blank" rel="noreferrer">
+                Experimentar ahora
+              </a>
             </Button>
           </div>
 
@@ -95,7 +91,7 @@ export function Navigation() {
         {/* Mobile Menu */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ${
-            isMobileMenuOpen ? "max-h-[500px] pb-6" : "max-h-0"
+            isMobileMenuOpen ? "max-h-125 pb-6" : "max-h-0"
           }`}
         >
           <div className="flex flex-col gap-2 pt-4 border-t border-border/50">
@@ -109,13 +105,16 @@ export function Navigation() {
                 {link.name}
               </a>
             ))}
-            <IntegrationMenu mobile />
             <div className="flex flex-col gap-2 pt-4 mt-2 border-t border-border/50">
-              <Button variant="ghost" className="justify-start text-muted-foreground pointer-events-none">
-                Ingresar
+              <Button asChild variant="ghost" className="justify-start text-muted-foreground">
+                <a href="https://proteus-h2o.onrender.com" target="_blank" rel="noreferrer">
+                  Ingresar
+                </a>
               </Button>
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                Experimentar ahora
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <a href="https://proteus-h2o.onrender.com" target="_blank" rel="noreferrer">
+                  Experimentar ahora
+                </a>
               </Button>
             </div>
           </div>

@@ -5,7 +5,7 @@ import { AsciiCube } from "./ascii-cube";
 
 const integrations = [
   { 
-    name: "Aplicativos H2O", 
+    name: "Aplicativos Proteus", 
     category: "Ecosistema",
     ascii: `  ┌─┐
   │#│
@@ -86,9 +86,9 @@ export function IntegrationsSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="text-sm font-mono text-primary mb-4">// ECOSISTEMA H2O</p>
+          <p className="text-sm font-mono text-primary mb-4">// ECOSISTEMA PROTEUS</p>
           <h2 className="text-4xl lg:text-5xl font-semibold tracking-tight mb-6 text-balance">
-            Preparado para evolucionar<br />dentro del ecosistema H2O.
+            Preparado para evolucionar<br />dentro del ecosistema Proteus.
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             En el MVP, las integraciones se representan con datos simulados y una capa de servicios preparada para una conexión futura.
@@ -136,7 +136,7 @@ export function IntegrationsSection() {
                   De la recopilación de datos a la ejecución.
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  La innovación de H2O Nexo permite utilizar una misma base configurable para diferentes necesidades, marcas y procesos, reduciendo la creación de soluciones aisladas.
+                  La innovación de Proteus permite utilizar una misma base configurable para diferentes necesidades, marcas y procesos, reduciendo la creación de soluciones aisladas.
                 </p>
                 <button className="px-6 py-3 bg-foreground text-background rounded-lg font-medium hover:bg-foreground/90 transition-colors">
                   Próximos pasos
@@ -146,7 +146,7 @@ export function IntegrationsSection() {
               <div className="font-mono text-xs text-muted-foreground space-y-2 bg-background/50 rounded-lg p-6 border border-border">
                 <div className="text-primary mb-2">// Ejemplo: seguir una respuesta</div>
                 <div>
-                  <span className="text-blue-300">const</span> respuesta = <span className="text-blue-400">await</span> h2oNexo.respuestas.listar({'{'}
+                  <span className="text-blue-300">const</span> respuesta = <span className="text-blue-400">await</span> proteus.respuestas.listar({'{'}
                 </div>
                 <div className="pl-4">
                   <span className="text-blue-300">formulario</span>: <span className="text-blue-200">&quot;registro-clientes&quot;</span>,

@@ -73,10 +73,12 @@ const metrics = [
 ];
 
 export function MetricsSection() {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState("--:--:--");
 
   useEffect(() => {
-    const interval = setInterval(() => setTime(new Date()), 1000);
+    const updateTime = () => setTime(new Date().toLocaleTimeString());
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -100,7 +102,7 @@ export function MetricsSection() {
             <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
             <span>Los equipos ganan autonomía para digitalizar procesos sin depender de nuevas herramientas</span>
             <span className="text-border">|</span>
-            <span>{time.toLocaleTimeString()}</span>
+            <span>{time}</span>
           </div>
         </div>
         

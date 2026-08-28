@@ -8,7 +8,7 @@ const steps = [
     number: "01",
     title: "Crear",
     description: "Crea un formulario a partir de una plantilla lista o de una estructura vacía.",
-    code: `h2oNexo.form({
+    code: `proteus.form({
   plantilla: 'registro-clientes',
   campos: ['nombre', 'email', 'teléfono']
 })`,
@@ -17,7 +17,7 @@ const steps = [
     number: "02",
     title: "Personalizar",
     description: "Edita etiquetas, placeholders, orden de los campos y la identidad visual de la empresa.",
-  code: `h2oNexo.form('pedido-de-venta', {
+  code: `proteus.form('pedido-de-venta', {
   campos: ['cliente', 'producto', 'cantidad'],
   marca: 'acme'
 })`,
@@ -26,7 +26,7 @@ const steps = [
     number: "03",
     title: "Publicar",
     description: "Publica el formulario, compártelo mediante un enlace y sigue cada respuesta recibida.",
-    code: `h2oNexo.publish('registro-clientes')
+    code: `proteus.publish('registro-clientes')
 // enlace listo para compartir`,
   },
 ];
