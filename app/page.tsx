@@ -22,9 +22,6 @@ export default function Home() {
         <HeroSection />
       </SectionReveal>
       <SectionReveal>
-        <AiAguiSection />
-      </SectionReveal>
-      <SectionReveal>
         <FeaturesSection />
       </SectionReveal>
       <SectionReveal>
@@ -44,6 +41,9 @@ export default function Home() {
       </SectionReveal>
       <SectionReveal>
         <DevelopersSection />
+      </SectionReveal>
+      <SectionReveal>
+        <AiAguiSection />
       </SectionReveal>
       <SectionReveal>
         <WebApplicationSection />
