@@ -40,12 +40,12 @@ export function HeroSection() {
           }`}
         >
           <p
-            className="text-6xl font-semibold tracking-tight text-white md:text-7xl lg:text-8xl"
+            className="text-7xl font-semibold tracking-tight text-white md:text-8xl lg:text-9xl"
             style={{ fontFamily: "var(--font-geist-pixel-line), monospace" }}
           >
             Proteus
           </p>
-          <p className="mt-3 max-w-2xl text-sm font-medium text-white md:text-base">
+          <p className="mt-5 max-w-4xl text-xl font-semibold leading-snug text-white md:text-2xl lg:text-3xl">
             Motor de procesos operativos y comerciales.
           </p>
         </div>

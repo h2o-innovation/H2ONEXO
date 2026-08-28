@@ -22,6 +22,8 @@ const isTypingTarget = (target: EventTarget | null) => {
   return target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName);
 };
 
+const isIntroActive = () => document.documentElement.dataset.introActive === "true";
+
 export function SectionDotsNav() {
   const [activeSection, setActiveSection] = useState(sections[0].id);
   const activeIndex = sections.findIndex((section) => section.id === activeSection);
@@ -59,7 +61,7 @@ export function SectionDotsNav() {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.defaultPrevented || isTypingTarget(event.target)) return;
+      if (event.defaultPrevented || isTypingTarget(event.target) || isIntroActive()) return;
 
       if (event.key === "ArrowUp") {
         event.preventDefault();

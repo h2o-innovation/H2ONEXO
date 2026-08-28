@@ -38,6 +38,19 @@ export function IntroSlide() {
   const [missingPhotos, setMissingPhotos] = useState<string[]>([]);
 
   useEffect(() => {
+    if (isLeaving) {
+      delete document.documentElement.dataset.introActive;
+      return;
+    }
+
+    document.documentElement.dataset.introActive = "true";
+
+    return () => {
+      delete document.documentElement.dataset.introActive;
+    };
+  }, [isLeaving]);
+
+  useEffect(() => {
     if (!hasStarted || activeSlide !== "intro") return;
 
     setShowPresenter(false);
@@ -123,6 +136,46 @@ export function IntroSlide() {
   const markPhotoMissing = (photo: string) => {
     setMissingPhotos((current) => current.includes(photo) ? current : [...current, photo]);
   };
+
+  useEffect(() => {
+    if (isLeaving) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.defaultPrevented) return;
+
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+
+        if (activeSlide === "video") {
+          if (isVideoEnded) continueToIntro();
+          if (!isVideoPlaying && !isVideoEnded) startVideo();
+          return;
+        }
+
+        if (activeSlide === "intro") {
+          startPresentation();
+          return;
+        }
+
+        finishPresentation();
+      }
+
+      if (event.key === "ArrowUp") {
+        event.preventDefault();
+
+        if (activeSlide === "team") {
+          returnToIntro();
+          return;
+        }
+
+        if (activeSlide === "intro") resetIntro();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeSlide, isLeaving, isVideoEnded, isVideoPlaying]);
 
   return (
     <section
