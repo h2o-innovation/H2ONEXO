@@ -51,6 +51,17 @@ export function IntroSlide() {
     };
   }, [activeSlide, hasStarted]);
 
+  useEffect(() => {
+    if (activeSlide !== "team") return;
+
+    const siteTimer = window.setTimeout(() => {
+      setIsMusicEnabled(true);
+      setIsLeaving(true);
+    }, 4500);
+
+    return () => window.clearTimeout(siteTimer);
+  }, [activeSlide]);
+
   const startPresentation = () => {
     if (!hasStarted) {
       setHasStarted(true);
