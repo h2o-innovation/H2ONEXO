@@ -30,6 +30,7 @@ export function IntroSlide() {
   const [isLeaving, setIsLeaving] = useState(false);
   const [activeSlide, setActiveSlide] = useState<"video" | "intro" | "team">("video");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isVideoEnded, setIsVideoEnded] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [showPresenter, setShowPresenter] = useState(false);
   const [showBrand, setShowBrand] = useState(false);
@@ -74,6 +75,7 @@ export function IntroSlide() {
 
   const startVideo = () => {
     setIsVideoPlaying(true);
+    setIsVideoEnded(false);
     setIsMusicEnabled(true);
 
     const video = videoRef.current;
@@ -85,7 +87,14 @@ export function IntroSlide() {
     }
   };
 
+  const markVideoEnded = () => {
+    setIsVideoPlaying(false);
+    setIsVideoEnded(true);
+  };
+
   const continueToIntro = () => {
+    if (!isVideoEnded) return;
+
     videoRef.current?.pause();
     setActiveSlide("intro");
     setHasStarted(true);
@@ -99,6 +108,7 @@ export function IntroSlide() {
   const resetIntro = () => {
     setActiveSlide("video");
     setIsVideoPlaying(false);
+    setIsVideoEnded(false);
     setHasStarted(false);
     setShowPresenter(false);
     setShowBrand(false);
@@ -160,7 +170,7 @@ export function IntroSlide() {
             src="/proteus.mp4"
             playsInline
             preload="auto"
-            onEnded={continueToIntro}
+            onEnded={markVideoEnded}
             className="absolute inset-0 h-full w-full object-contain opacity-90"
           />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_34%,rgba(0,0,0,.36)_82%)]" />
@@ -175,16 +185,18 @@ export function IntroSlide() {
           >
             <div className="mb-8 h-px w-40 bg-primary/70 shadow-[0_0_24px_rgba(59,130,246,0.7)] animate-pulse" />
             <p className="mb-10 font-mono text-sm uppercase tracking-[0.35em] text-primary/70">
-              {isVideoPlaying ? "Proteus iniciando" : "Presiona para iniciar"}
+              {isVideoEnded ? "Video finalizado" : isVideoPlaying ? "Proteus iniciando" : "Presiona para iniciar"}
             </p>
-            <button
-              type="button"
-              onClick={isVideoPlaying ? continueToIntro : startVideo}
-              className="group grid h-14 w-14 place-items-center rounded-full border border-primary/40 bg-primary/10 text-primary shadow-[0_0_32px_rgba(59,130,246,0.25)] transition-all duration-300 hover:scale-105 hover:bg-primary hover:text-primary-foreground"
-              aria-label={isVideoPlaying ? "Continuar intro" : "Iniciar video"}
-            >
-              <ArrowRight className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+            {!isVideoPlaying && (
+              <button
+                type="button"
+                onClick={isVideoEnded ? continueToIntro : startVideo}
+                className="group grid h-14 w-14 place-items-center rounded-full border border-primary/40 bg-primary/10 text-primary shadow-[0_0_32px_rgba(59,130,246,0.25)] transition-all duration-300 hover:scale-105 hover:bg-primary hover:text-primary-foreground"
+                aria-label={isVideoEnded ? "Continuar intro" : "Iniciar video"}
+              >
+                <ArrowRight className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            )}
           </div>
         </div>
       ) : activeSlide === "intro" ? (
