@@ -72,7 +72,7 @@ export function SecuritySection() {
     <section ref={sectionRef} className="relative py-32 bg-muted/30 overflow-hidden">
       {/* ASCII Torus Background */}
       <div className="absolute right-0 bottom-0 opacity-5 pointer-events-none">
-        <AsciiTorus className="w-[500px] h-[450px]" />
+        <AsciiTorus className="w-125 h-112.5" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
@@ -140,23 +140,6 @@ export function SecuritySection() {
           </div>
         </div>
 
-        {/* Security Notice */}
-        <div
-          className={`mt-8 p-6 rounded-xl bg-foreground/5 border border-primary/20 transition-all duration-700 delay-400 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="flex items-start gap-4">
-            <pre className="font-mono text-2xl text-primary mt-1">🔒</pre>
-            <div>
-              <h4 className="font-semibold mb-2">Funcionalidades futuras</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                En el MVP, las integraciones se representan con datos simulados y una capa de servicios preparada para una conexión futura.
-                <a href="#" className="text-primary hover:underline ml-1">Conocer próximos pasos →</a>
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

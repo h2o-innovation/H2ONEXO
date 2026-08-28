@@ -8,7 +8,7 @@ import { MetricsSection } from "@/components/landing/metrics-section";
 import { IntegrationsSection } from "@/components/landing/integrations-section";
 import { SecuritySection } from "@/components/landing/security-section";
 import { DevelopersSection } from "@/components/landing/developers-section";
-import { CtaSection } from "@/components/landing/cta-section";
+import { WebApplicationSection } from "@/components/landing/web-application-section";
 import { FooterSection } from "@/components/landing/footer-section";
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
       <IntegrationsSection />
       <SecuritySection />
       <DevelopersSection />
-      <CtaSection />
+      <WebApplicationSection />
       <FooterSection />
     </main>
   );

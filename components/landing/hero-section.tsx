@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { AsciiWave } from "./ascii-wave";
 
 export function HeroSection() {
@@ -67,36 +65,6 @@ export function HeroSection() {
           
         </div>
 
-        <p
-          className={`mb-10 text-center font-mono text-sm text-primary/80 transition-all duration-700 delay-400 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-        >
-          Capturar → Validar → Aprobar → Ejecutar → Integrar
-        </p>
-        
-        {/* CTAs */}
-        <div 
-     className={`flex flex-col sm:flex-row items-center justify-center gap-3 mb-0 transition-all duration-700 delay-500 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-        >
-          <Button 
-            size="lg" 
-            className="bg-foreground hover:bg-foreground/90 text-background px-6 h-11 text-sm font-medium group"
-          >
-            Ver transformación
-            <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5" />
-          </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="h-11 px-6 text-sm font-medium border-border hover:bg-secondary/50 bg-transparent"
-          >
-            Motor white label
-          </Button>
-        </div>
-        
       </div>
     </section>
   );
