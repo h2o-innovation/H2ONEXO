@@ -1,0 +1,28 @@
+<svg width="920" height="260" viewBox="0 0 920 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Proteus by H2O</title>
+  <desc id="desc">Logo de Proteus by H2O</desc>
+  <defs>
+    <linearGradient id="proteusBlue" x1="70" y1="30" x2="850" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#25D7FF" />
+      <stop offset="0.5" stop-color="#4EA1FF" />
+      <stop offset="1" stop-color="#7CE7D7" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-30%" width="140%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.13 0 0 0 0 0.78 0 0 0 0 1 0 0 0 0.38 0" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#glow)">
+    <circle cx="130" cy="130" r="82" stroke="url(#proteusBlue)" stroke-width="18" />
+    <path d="M130 48C84.7 48 48 84.7 48 130s36.7 82 82 82c-34.2-10.6-59-42.5-59-80.2C71 92.9 97.1 60 130 48Z" fill="#08121A" />
+    <path d="M143 69C109.9 69 83 95.9 83 129s26.9 60 60 60c-25.1-8-43.3-31.5-43.3-59.2C99.7 101.4 118.8 77.3 143 69Z" fill="#08121A" />
+    <path d="M156 92C134.2 92 116.5 109.7 116.5 131.5S134.2 171 156 171c-16.3-5.2-28.1-20.5-28.1-38.5C127.9 114.1 140.2 98.5 156 92Z" fill="#08121A" />
+  </g>
+  <text x="248" y="126" fill="url(#proteusBlue)" font-family="Orbitron, Eurostile, Arial, sans-serif" font-size="78" font-weight="800" letter-spacing="10">PROTEUS</text>
+  <text x="254" y="178" fill="#DDF7FF" font-family="JetBrains Mono, Menlo, monospace" font-size="24" font-weight="700" letter-spacing="8">BY H2O</text>
+  <path d="M254 204H612" stroke="url(#proteusBlue)" stroke-width="3" stroke-linecap="round" opacity="0.75" />
+</svg>
